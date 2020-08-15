@@ -1,13 +1,36 @@
-// run from cmd> go run hello.go
-
 package main
 
 import "fmt"
 
-func Hello() string {
-	return "Hello, world"
+const spanish = "Spanish"
+const french = "French"
+const englishHelloPrefix = "Hello, "
+const spanishHelloPrefix = "Hola, "
+const frenchHelloPrefix = "Bonjour, "
+
+// Hello returns a personalized greeting in a given language.
+func Hello(name string, language string) string {
+	if name == "" {
+		name = "World"
+	}
+
+	return greetingPrefix(language) + name + " - Live " + language + "!"
+}
+
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+	case french:
+		prefix = frenchHelloPrefix
+	case spanish:
+		prefix = spanishHelloPrefix
+	default:
+		prefix = englishHelloPrefix
+	}
+	return
 }
 
 func main() {
-	fmt.Println(Hello())
+	fmt.Println(Hello("world", ""))
+	fmt.Println(Hello("world", "French"))
+	fmt.Println(Hello("world", "Spanish"))
 }
