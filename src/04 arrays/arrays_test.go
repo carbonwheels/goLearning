@@ -1,6 +1,10 @@
 package array
 
-import "testing"
+import (
+	"reflect"
+	"strconv"
+	"testing"
+)
 
 // Version 1
 func TestSum(t *testing.T) {
@@ -12,6 +16,8 @@ func TestSum(t *testing.T) {
 
 	if want != got {
 		t.Errorf("got %d want %d given, %v", got, want, numbers)
+	} else {
+		println("Success Version 1, got " + strconv.Itoa(got))
 	}
 }
 
@@ -25,6 +31,8 @@ func TestSum2(t *testing.T) {
 
 	if got != want {
 		t.Errorf("got %d want %d given, %v", got, want, numbers)
+	} else {
+		println("Success Version 2, got " + strconv.Itoa(got))
 	}
 }
 
@@ -40,7 +48,34 @@ func TestSum3(t *testing.T) {
 
 		if got != want {
 			t.Errorf("got %d want %d given, %v", got, want, numbers)
+		} else {
+			println("Success Version 3, got " + strconv.Itoa(got))
 		}
 	})
+}
 
+// Version 4:
+func TestSumAll4(t *testing.T) {
+
+	got := SumAll4([]int{1, 2}, []int{0, 9})
+	want := []int{3, 9}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	} else {
+		println("Success TestSumAll4")
+	}
+}
+
+// Version 5:
+func TestSumAll5(t *testing.T) {
+
+	got := SumAll5([]int{1, 2}, []int{0, 9})
+	want := []int{3, 9}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	} else {
+		println("Success TestSumAll5")
+	}
 }

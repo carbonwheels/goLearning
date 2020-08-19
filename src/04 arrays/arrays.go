@@ -26,3 +26,27 @@ func Sum3(numbers []int) int {
 	}
 	return sum
 }
+
+// Version 4: SumAll calculates the respective sums of every slice passed in.
+// Determines the length of each array and returns each sum
+func SumAll4(numbersToSum ...[]int) []int {
+	lengthOfNumbers := len(numbersToSum)
+	sums := make([]int, lengthOfNumbers)
+
+	for i, numbers := range numbersToSum {
+		sums[i] = Sum3(numbers)
+	}
+
+	return sums
+}
+
+// Version 5: SumAll calculates the respective sums of every slice passed in.
+// Loops through each array and returns each sum
+func SumAll5(numbersToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersToSum {
+		sums = append(sums, Sum3(numbers))
+	}
+
+	return sums
+}
