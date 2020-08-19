@@ -1,27 +1,29 @@
 package objects
 
-// Version 1: Calculates preimeter
-func Perimeter(width float64, height float64) float64 {
-	return 2 * (width + height)
-}
+import "math"
 
-// Version 2: Calulates the area
-func Area(width float64, height float64) float64 {
-	return width * height
-}
-
-// Version 3: Rectangle has the dimensions of a rectangle.
+// Rectangle has the dimensions of a rectangle.
 type Rectangle struct {
 	Width  float64
 	Height float64
 }
 
-// Version 3: Perimeter returns the perimeter of the rectangle.
-func Perimeter3(rectangle Rectangle) float64 {
+// Area returns the area of the rectangle.
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
+}
+
+// Perimeter returns the perimeter of a rectangle.
+func Perimeter(rectangle Rectangle) float64 {
 	return 2 * (rectangle.Width + rectangle.Height)
 }
 
-// Version 3: Area returns the area of the rectangle.
-func Area3(rectangle Rectangle) float64 {
-	return rectangle.Width * rectangle.Height
+// Circle represents a circle...
+type Circle struct {
+	Radius float64
+}
+
+// Area returns the area of the circle.
+func (c Circle) Area() float64 {
+	return math.Pi * c.Radius * c.Radius
 }
