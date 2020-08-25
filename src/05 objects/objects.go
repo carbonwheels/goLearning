@@ -2,6 +2,11 @@ package objects
 
 import "math"
 
+// Shape is implemented by anything that can tell us its Area.
+type Shape interface {
+	Area() float64
+}
+
 // Rectangle has the dimensions of a rectangle.
 type Rectangle struct {
 	Width  float64
